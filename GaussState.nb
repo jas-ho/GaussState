@@ -1,1 +1,889 @@
-Notebook[{}]
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     30503,        881]
+NotebookOptionsPosition[     28803,        815]
+NotebookOutlinePosition[     29284,        836]
+CellTagsIndexPosition[     29198,        831]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Warning", "Section",
+ CellChangeTimes->{{3.730952449315667*^9, 3.730952450079364*^9}}],
+
+Cell["\<\
+This package has not been systematically tested. Use at your own peril!\
+\>", "Text",
+ CellChangeTimes->{{3.730952453132992*^9, 3.7309524552776833`*^9}, {
+  3.731122982252322*^9, 3.7311230004252663`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Installation", "Section",
+ CellChangeTimes->{{3.730952395486631*^9, 3.7309523969846373`*^9}}],
+
+Cell["To install, clone into $UserBaseDirectory/Applications.", "Text",
+ CellChangeTimes->{{3.730951939428863*^9, 3.730951968982583*^9}, 
+   3.731123005515811*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Initialization", "Section",
+ CellChangeTimes->{{3.730952205874382*^9, 3.730952207984737*^9}, 
+   3.730952386963266*^9}],
+
+Cell["To initialize the package run:", "Text",
+ CellChangeTimes->{{3.730952187113497*^9, 3.7309521927710648`*^9}, 
+   3.730952239891103*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<GaussState`\>\"", "]"}]], "Input"],
+
+Cell[BoxData["\<\"Type \\\"?aboutGaussState for general info about the \
+package and \\\"?GAUSSSTATE`GaussState`*\\\" for a list of the built-in \
+functions. \\n\\nBy default, the mode operator convention is the canonical \
+with [a, \\!\\(\\*SuperscriptBox[\\\"a\\\", \\\"\[Dagger]\\\"]\\)]=1 and \
+[q,p]=\[ImaginaryI].\\n\\n But it can be changed to the quantum-optical \
+convention by changing the value of the variable \[Kappa]1, \[Kappa]2 and \
+\[Kappa]3 \\nat the beginning of the private environment of the package file \
+GaussState.m\"\>"], "Print",
+ CellChangeTimes->{3.730952180061862*^9, 3.7309528192294903`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Information", "Section",
+ CellChangeTimes->{{3.730952213703538*^9, 3.730952214532398*^9}, 
+   3.730952389485819*^9}],
+
+Cell["For more information about the package:", "Text",
+ CellChangeTimes->{{3.7309521976029787`*^9, 3.730952237642058*^9}, {
+  3.7309523249512987`*^9, 3.730952326124845*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "aboutGaussState"}]], "Input",
+ CellChangeTimes->{{3.730952248491185*^9, 3.7309522493448877`*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\" This package contains tools for the calculation of covariance \
+matrices of Gaussian states - \\n\\n as well as the evaluation of certain \
+entanglement measures on the level of these covariance matrices. \\n\\n All \
+commands are named in a Mathematica-like fashion, except for a \\\"gs\\\" in \
+front of every command. \"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.730952822256236*^9},
+ CellTags->"Info33730960022-4457481"]
+}, Open  ]],
+
+Cell["\<\
+All functions which are meant for everyday use are prefixed with \
+\[OpenCurlyQuote]gs\[CloseCurlyQuote]. To display the list of these functions:\
+\>", "Text",
+ CellChangeTimes->{{3.730952330279705*^9, 3.730952423975479*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "GaussState`gs*"}]], "Input",
+ CellChangeTimes->{{3.730952351101097*^9, 3.7309523560156927`*^9}}],
+
+Cell[BoxData[
+ DynamicModuleBox[{Typeset`open$$ = True}, 
+  PaneSelectorBox[{False->
+   RowBox[{
+    OpenerBox[Dynamic[Typeset`open$$],
+     ImageSize->Small], 
+    StyleBox["GaussState`", "InfoHeading"]}], True->GridBox[{
+     {
+      RowBox[{
+       OpenerBox[Dynamic[Typeset`open$$],
+        ImageSize->Small], 
+       StyleBox["GaussState`", "InfoHeading"]}]},
+     {GridBox[{
+        {
+         ButtonBox["gsBeamSplitter",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info93730959556-7051079", {"gsBeamSplitter", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsNegativity",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info93730959556-7051079", {"gsNegativity", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsStandardFormTMGS",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info93730959556-7051079", {"gsStandardFormTMGS", "GaussState`"}},
+          ButtonNote->"GaussState`"]},
+        {
+         ButtonBox["gsConventionInfo",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info93730959556-7051079", {"gsConventionInfo", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsPhaseShifter",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info93730959556-7051079", {"gsPhaseShifter", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsStandardFormTMGSParameters",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info93730959556-7051079", {
+            "gsStandardFormTMGSParameters", "GaussState`"}},
+          ButtonNote->"GaussState`"]},
+        {
+         ButtonBox["gsCubicCluster",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info93730959556-7051079", {"gsCubicCluster", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsPhotonNumber",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info93730959556-7051079", {"gsPhotonNumber", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsSymLinearClusterAdjacencyMat",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info93730959556-7051079", {
+            "gsSymLinearClusterAdjacencyMat", "GaussState`"}},
+          ButtonNote->"GaussState`"]},
+        {
+         ButtonBox["gsCubicClusterAdjacencyMat",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info93730959556-7051079", {
+            "gsCubicClusterAdjacencyMat", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsPPTSeparabilityCheck",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info93730959556-7051079", {
+            "gsPPTSeparabilityCheck", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsSymplecticForm",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info93730959556-7051079", {"gsSymplecticForm", "GaussState`"}},
+          ButtonNote->"GaussState`"]},
+        {
+         ButtonBox["gsDirectSum",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info93730959556-7051079", {"gsDirectSum", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsPTSymplecticSpectrum",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info93730959556-7051079", {
+            "gsPTSymplecticSpectrum", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsSymplecticityCheck",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info93730959556-7051079", {"gsSymplecticityCheck", "GaussState`"}},
+          ButtonNote->"GaussState`"]},
+        {
+         ButtonBox["gsEoF",
+          BaseStyle->"InformationLink",
+          ButtonData:>{"Info93730959556-7051079", {"gsEoF", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsPTTrafo",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info93730959556-7051079", {"gsPTTrafo", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsSymplecticSpectrum",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info93730959556-7051079", {"gsSymplecticSpectrum", "GaussState`"}},
+          ButtonNote->"GaussState`"]},
+        {
+         ButtonBox["gsEoFverbose",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info93730959556-7051079", {"gsEoFverbose", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsPurity",
+          BaseStyle->"InformationLink",
+          ButtonData:>{"Info93730959556-7051079", {"gsPurity", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsSymplecticTrafo",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info93730959556-7051079", {"gsSymplecticTrafo", "GaussState`"}},
+          ButtonNote->"GaussState`"]},
+        {
+         ButtonBox["gsGraphState",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info93730959556-7051079", {"gsGraphState", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsPurityCheck",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info93730959556-7051079", {"gsPurityCheck", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsSymplecticVector",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info93730959556-7051079", {"gsSymplecticVector", "GaussState`"}},
+          ButtonNote->"GaussState`"]},
+        {
+         ButtonBox["gsHeisenbergCheck",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info93730959556-7051079", {"gsHeisenbergCheck", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsQPOrdering",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info93730959556-7051079", {"gsQPOrdering", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsSymSquareClusterAdjacencyMat",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info93730959556-7051079", {
+            "gsSymSquareClusterAdjacencyMat", "GaussState`"}},
+          ButtonNote->"GaussState`"]},
+        {
+         ButtonBox["gsLinearCluster",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info93730959556-7051079", {"gsLinearCluster", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsSFParams",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info93730959556-7051079", {"gsSFParams", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsTMSS",
+          BaseStyle->"InformationLink",
+          ButtonData:>{"Info93730959556-7051079", {"gsTMSS", "GaussState`"}},
+          ButtonNote->"GaussState`"]},
+        {
+         ButtonBox["gsLinearClusterAdjacencyMat",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info93730959556-7051079", {
+            "gsLinearClusterAdjacencyMat", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsSquareCluster",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info93730959556-7051079", {"gsSquareCluster", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsVac",
+          BaseStyle->"InformationLink",
+          ButtonData:>{"Info93730959556-7051079", {"gsVac", "GaussState`"}},
+          ButtonNote->"GaussState`"]},
+        {
+         ButtonBox["gsLogNegativity",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info93730959556-7051079", {"gsLogNegativity", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsSquareClusterAdjacencyMat",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info93730959556-7051079", {
+            "gsSquareClusterAdjacencyMat", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsVacuumState",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info93730959556-7051079", {"gsVacuumState", "GaussState`"}},
+          ButtonNote->"GaussState`"]},
+        {
+         ButtonBox["gsMeanPhotonNumber",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info93730959556-7051079", {"gsMeanPhotonNumber", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsSqueezedState",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info93730959556-7051079", {"gsSqueezedState", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsWignerFunction",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info93730959556-7051079", {"gsWignerFunction", "GaussState`"}},
+          ButtonNote->"GaussState`"]},
+        {
+         ButtonBox["gsModeInterchange",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info93730959556-7051079", {"gsModeInterchange", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsSqueezer",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info93730959556-7051079", {"gsSqueezer", "GaussState`"}},
+          ButtonNote->"GaussState`"], ""}
+       },
+       DefaultBaseStyle->"InfoGrid",
+       GridBoxItemSize->{"Columns" -> {{
+            Scaled[0.31666666666666665`]}}}]}
+    },
+    GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}}]}, 
+   Dynamic[Typeset`open$$],
+   ImageSize->Automatic]]], "Print", "InfoCell",
+ CellChangeTimes->{3.730952356560978*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "To display a list of ",
+ StyleBox["all",
+  FontSlant->"Italic"],
+ " symbols defined by this package:"
+}], "Text",
+ CellChangeTimes->{{3.730952287998969*^9, 3.730952320741005*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "GaussState`*"}]], "Input",
+ CellChangeTimes->{3.730952274363254*^9}],
+
+Cell[BoxData[
+ DynamicModuleBox[{Typeset`open$$ = True}, 
+  PaneSelectorBox[{False->
+   RowBox[{
+    OpenerBox[Dynamic[Typeset`open$$],
+     ImageSize->Small], 
+    StyleBox["GaussState`", "InfoHeading"]}], True->GridBox[{
+     {
+      RowBox[{
+       OpenerBox[Dynamic[Typeset`open$$],
+        ImageSize->Small], 
+       StyleBox["GaussState`", "InfoHeading"]}]},
+     {GridBox[{
+        {
+         ButtonBox["aboutGaussState",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info83730959474-7051079", {"aboutGaussState", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsPhaseShifter",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info83730959474-7051079", {"gsPhaseShifter", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsSymplecticityCheck",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info83730959474-7051079", {"gsSymplecticityCheck", "GaussState`"}},
+          ButtonNote->"GaussState`"]},
+        {
+         ButtonBox["epspath",
+          BaseStyle->"InformationLink",
+          ButtonData:>{"Info83730959474-7051079", {"epspath", "GaussState`"}},
+          
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsPhotonNumber",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info83730959474-7051079", {"gsPhotonNumber", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsSymplecticSpectrum",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info83730959474-7051079", {"gsSymplecticSpectrum", "GaussState`"}},
+          ButtonNote->"GaussState`"]},
+        {
+         ButtonBox["gsBeamSplitter",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info83730959474-7051079", {"gsBeamSplitter", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsPPTSeparabilityCheck",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info83730959474-7051079", {
+            "gsPPTSeparabilityCheck", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsSymplecticTrafo",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info83730959474-7051079", {"gsSymplecticTrafo", "GaussState`"}},
+          ButtonNote->"GaussState`"]},
+        {
+         ButtonBox["gsConventionInfo",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info83730959474-7051079", {"gsConventionInfo", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsPTSymplecticSpectrum",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info83730959474-7051079", {
+            "gsPTSymplecticSpectrum", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsSymplecticVector",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info83730959474-7051079", {"gsSymplecticVector", "GaussState`"}},
+          ButtonNote->"GaussState`"]},
+        {
+         ButtonBox["gsCubicCluster",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info83730959474-7051079", {"gsCubicCluster", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsPTTrafo",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info83730959474-7051079", {"gsPTTrafo", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsSymSquareClusterAdjacencyMat",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info83730959474-7051079", {
+            "gsSymSquareClusterAdjacencyMat", "GaussState`"}},
+          ButtonNote->"GaussState`"]},
+        {
+         ButtonBox["gsCubicClusterAdjacencyMat",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info83730959474-7051079", {
+            "gsCubicClusterAdjacencyMat", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsPurity",
+          BaseStyle->"InformationLink",
+          ButtonData:>{"Info83730959474-7051079", {"gsPurity", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsTMSS",
+          BaseStyle->"InformationLink",
+          ButtonData:>{"Info83730959474-7051079", {"gsTMSS", "GaussState`"}},
+          ButtonNote->"GaussState`"]},
+        {
+         ButtonBox["gsDirectSum",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info83730959474-7051079", {"gsDirectSum", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsPurityCheck",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info83730959474-7051079", {"gsPurityCheck", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsVac",
+          BaseStyle->"InformationLink",
+          ButtonData:>{"Info83730959474-7051079", {"gsVac", "GaussState`"}},
+          ButtonNote->"GaussState`"]},
+        {
+         ButtonBox["gsEoF",
+          BaseStyle->"InformationLink",
+          ButtonData:>{"Info83730959474-7051079", {"gsEoF", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsQPOrdering",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info83730959474-7051079", {"gsQPOrdering", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsVacuumState",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info83730959474-7051079", {"gsVacuumState", "GaussState`"}},
+          ButtonNote->"GaussState`"]},
+        {
+         ButtonBox["gsEoFverbose",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info83730959474-7051079", {"gsEoFverbose", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsSFParams",
+          BaseStyle->"InformationLink",
+          ButtonData:>{
+           "Info83730959474-7051079", {"gsSFParams", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsWignerFunction",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info83730959474-7051079", {"gsWignerFunction", "GaussState`"}},
+          ButtonNote->"GaussState`"]},
+        {
+         ButtonBox["gsGraphState",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info83730959474-7051079", {"gsGraphState", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsSquareCluster",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info83730959474-7051079", {"gsSquareCluster", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["id",
+          BaseStyle->"InformationLink",
+          ButtonData:>{"Info83730959474-7051079", {"id", "GaussState`"}},
+          ButtonNote->"GaussState`"]},
+        {
+         ButtonBox["gsHeisenbergCheck",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info83730959474-7051079", {"gsHeisenbergCheck", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsSquareClusterAdjacencyMat",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info83730959474-7051079", {
+            "gsSquareClusterAdjacencyMat", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["id$",
+          BaseStyle->"InformationLink",
+          ButtonData:>{"Info83730959474-7051079", {"id$", "GaussState`"}},
+          ButtonNote->"GaussState`"]},
+        {
+         ButtonBox["gsLinearCluster",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info83730959474-7051079", {"gsLinearCluster", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsSqueezedState",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info83730959474-7051079", {"gsSqueezedState", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["jpgpath",
+          BaseStyle->"InformationLink",
+          ButtonData:>{"Info83730959474-7051079", {"jpgpath", "GaussState`"}},
+          
+          ButtonNote->"GaussState`"]},
+        {
+         ButtonBox["gsLinearClusterAdjacencyMat",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info83730959474-7051079", {
+            "gsLinearClusterAdjacencyMat", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsSqueezer",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info83730959474-7051079", {"gsSqueezer", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["Sigma1",
+          BaseStyle->"InformationLink",
+          ButtonData:>{"Info83730959474-7051079", {"Sigma1", "GaussState`"}},
+          ButtonNote->"GaussState`"]},
+        {
+         ButtonBox["gsLogNegativity",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info83730959474-7051079", {"gsLogNegativity", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsStandardFormTMGS",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info83730959474-7051079", {"gsStandardFormTMGS", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["Sigma2",
+          BaseStyle->"InformationLink",
+          ButtonData:>{"Info83730959474-7051079", {"Sigma2", "GaussState`"}},
+          ButtonNote->"GaussState`"]},
+        {
+         ButtonBox["gsMeanPhotonNumber",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info83730959474-7051079", {"gsMeanPhotonNumber", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsStandardFormTMGSParameters",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info83730959474-7051079", {
+            "gsStandardFormTMGSParameters", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["Sigma3",
+          BaseStyle->"InformationLink",
+          ButtonData:>{"Info83730959474-7051079", {"Sigma3", "GaussState`"}},
+          ButtonNote->"GaussState`"]},
+        {
+         ButtonBox["gsModeInterchange",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info83730959474-7051079", {"gsModeInterchange", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsSymLinearClusterAdjacencyMat",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info83730959474-7051079", {
+            "gsSymLinearClusterAdjacencyMat", "GaussState`"}},
+          ButtonNote->"GaussState`"], ""},
+        {
+         ButtonBox["gsNegativity",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info83730959474-7051079", {"gsNegativity", "GaussState`"}},
+          ButtonNote->"GaussState`"], 
+         ButtonBox["gsSymplecticForm",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info83730959474-7051079", {"gsSymplecticForm", "GaussState`"}},
+          ButtonNote->"GaussState`"], ""}
+       },
+       DefaultBaseStyle->"InfoGrid",
+       GridBoxItemSize->{"Columns" -> {{
+            Scaled[0.31666666666666665`]}}}]}
+    },
+    GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}}]}, 
+   Dynamic[Typeset`open$$],
+   ImageSize->Automatic]]], "Print", "InfoCell",
+ CellChangeTimes->{3.730952274704344*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Examples", "Section",
+ CellChangeTimes->{{3.7309529042733088`*^9, 3.730952906901574*^9}}],
+
+Cell["A two-mode squeezed state with squeezing parameter r=1:", "Text",
+ CellChangeTimes->{{3.7309529584579277`*^9, 3.730952974205727*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"r", "=", "1"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"gsTMSS", "[", "r", "]"}], "//", "MatrixForm"}]}], "Input",
+ CellChangeTimes->{{3.73095291648212*^9, 3.73095292757178*^9}, {
+  3.730952976013398*^9, 3.730952986274014*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      FractionBox[
+       RowBox[{"Cosh", "[", "2", "]"}], "2"], "0", 
+      FractionBox[
+       RowBox[{"Sinh", "[", "2", "]"}], "2"], "0"},
+     {"0", 
+      FractionBox[
+       RowBox[{"Cosh", "[", "2", "]"}], "2"], "0", 
+      RowBox[{"-", 
+       FractionBox[
+        RowBox[{"Sinh", "[", "2", "]"}], "2"]}]},
+     {
+      FractionBox[
+       RowBox[{"Sinh", "[", "2", "]"}], "2"], "0", 
+      FractionBox[
+       RowBox[{"Cosh", "[", "2", "]"}], "2"], "0"},
+     {"0", 
+      RowBox[{"-", 
+       FractionBox[
+        RowBox[{"Sinh", "[", "2", "]"}], "2"]}], "0", 
+      FractionBox[
+       RowBox[{"Cosh", "[", "2", "]"}], "2"]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.7309529183629*^9, 3.7309529279696302`*^9}, {
+  3.7309529774042273`*^9, 3.730952986603197*^9}}]
+}, Open  ]],
+
+Cell["\<\
+The logarithmic negativity can be calculated as follows. Note that we need to \
+specify a bipartition of the modes by listing the indices of one part of the \
+bipartition and providing it as as the second argument: \
+\>", "Text",
+ CellChangeTimes->{{3.7309530075990067`*^9, 3.730953074521804*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"partition1", "=", 
+   RowBox[{"{", "1", "}"}]}], ";"}], "\n", 
+ RowBox[{"gsLogNegativity", "[", 
+  RowBox[{
+   RowBox[{"gsTMSS", "[", "r", "]"}], ",", " ", "partition1"}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.730952908893118*^9, 3.7309529501614647`*^9}, {
+  3.730952991275182*^9, 3.730952991447043*^9}, {3.730953077076827*^9, 
+  3.730953090789764*^9}}],
+
+Cell[BoxData["2"], "Output",
+ CellChangeTimes->{{3.730952933339892*^9, 3.730952944413809*^9}, 
+   3.7309530912481833`*^9}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{956, 1144},
+WindowMargins->{{2, Automatic}, {2, 29}},
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Info33730960022-4457481"->{
+  Cell[2724, 85, 469, 7, 112, "Print",
+   CellTags->"Info33730960022-4457481"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Info33730960022-4457481", 29094, 825}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 92, 1, 65, "Section"],
+Cell[675, 25, 214, 4, 31, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[926, 34, 99, 1, 65, "Section"],
+Cell[1028, 37, 163, 2, 31, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1228, 44, 125, 2, 65, "Section"],
+Cell[1356, 48, 140, 2, 31, "Text"],
+Cell[CellGroupData[{
+Cell[1521, 54, 76, 1, 35, "Input"],
+Cell[1600, 57, 622, 8, 155, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2271, 71, 122, 2, 65, "Section"],
+Cell[2396, 75, 174, 2, 31, "Text"],
+Cell[CellGroupData[{
+Cell[2595, 81, 126, 2, 30, "Input"],
+Cell[2724, 85, 469, 7, 112, "Print",
+ CellTags->"Info33730960022-4457481"]
+}, Open  ]],
+Cell[3208, 95, 235, 4, 31, "Text"],
+Cell[CellGroupData[{
+Cell[3468, 103, 125, 2, 32, "Input"],
+Cell[3596, 107, 10264, 281, 366, "Print"]
+}, Open  ]],
+Cell[13875, 391, 197, 6, 31, "Text"],
+Cell[CellGroupData[{
+Cell[14097, 401, 97, 2, 30, "Input"],
+Cell[14197, 405, 11828, 319, 438, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[26074, 730, 95, 1, 65, "Section"],
+Cell[26172, 733, 139, 1, 31, "Text"],
+Cell[CellGroupData[{
+Cell[26336, 738, 258, 6, 51, "Input"],
+Cell[26597, 746, 1312, 39, 150, "Output"]
+}, Open  ]],
+Cell[27924, 788, 307, 5, 51, "Text"],
+Cell[CellGroupData[{
+Cell[28256, 797, 394, 10, 56, "Input"],
+Cell[28653, 809, 122, 2, 30, "Output"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
