@@ -1,4 +1,4 @@
-
+(* ::Package:: *)
 
 (* Mathematica Raw Program 
 
@@ -24,7 +24,14 @@ BeginPackage["GaussState`",{"GraphUtilities`"}]
 Print["Type \"?aboutGaussState\ for general info about the package and \"?GAUSSSTATE`GaussState`*\" for a list of the built-in functions. \n
 By default, the mode operator convention is the canonical with [a, \!\(\*SuperscriptBox[\"a\", \"\[Dagger]\"]\)]=1 and [q,p]=\[ImaginaryI].\n
  But it can be changed to the quantum-optical convention by changing the value of the variable \[Kappa]1, \[Kappa]2 and \[Kappa]3 
-at the beginning of the private environment of the package file GaussState.m"];
+at the beginning of the private environment of the package file GaussState.m
+
+Ferraro et al. [2005] provide an excellent reference for this purpose: They list many formulas explicitly as functions of the convention-dependent variables \[Kappa] 1 , \[Kappa] 2 , \[Kappa] 3
+which are defined in [Ferraro et al., section 1.5.2].
+
+Reference:
+Ferraro, A., Olivares, S., & Paris, M. G. A. [2005, Mar.] Gaussian states in continuous variable
+quantum information. quant-ph/0503237."];
 
 (* Begins USAGE description of Commands *)
 aboutGaussState::usage = 
@@ -281,7 +288,7 @@ gsSymplecticVector[n_?IntegerQ]:=ArrayFlatten[
 gsSymplecticTrafo[n_?IntegerQ,hvec_?ListQ]:=Module[{hmataux},
 												hmataux=SparseArray[Table[{hvec[[i]][[1]],hvec[[i]][[2]]}->hvec[[i]][[3]],{i,1,Length[hvec]}],2n];
 												MatrixExp[-(1/(2*\[Kappa]1^2))gsSymplecticForm[n].(hmataux+Transpose[hmataux])]
-												] (* !! Change compared to Bruß/Leuchs Exp(-\[CapitalOmega] H) instead of Exp(H \[CapitalOmega])  *)
+												] (* !! Change compared to Bru\[SZ]/Leuchs Exp(-\[CapitalOmega] H) instead of Exp(H \[CapitalOmega])  *)
 
 gsModeInterchange[mat_?MatrixQ,m1_Integer,m2_Integer]:=Module[{auxmat,id,l},
 																id=IdentityMatrix[2];l=1/2 *Length[mat];

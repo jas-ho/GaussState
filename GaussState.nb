@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     30503,        881]
-NotebookOptionsPosition[     28803,        815]
-NotebookOutlinePosition[     29284,        836]
-CellTagsIndexPosition[     29198,        831]
+NotebookDataLength[     30947,        886]
+NotebookOptionsPosition[     29244,        820]
+NotebookOutlinePosition[     29725,        841]
+CellTagsIndexPosition[     29639,        836]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -62,8 +62,13 @@ with [a, \\!\\(\\*SuperscriptBox[\\\"a\\\", \\\"\[Dagger]\\\"]\\)]=1 and \
 [q,p]=\[ImaginaryI].\\n\\n But it can be changed to the quantum-optical \
 convention by changing the value of the variable \[Kappa]1, \[Kappa]2 and \
 \[Kappa]3 \\nat the beginning of the private environment of the package file \
-GaussState.m\"\>"], "Print",
- CellChangeTimes->{3.730952180061862*^9, 3.7309528192294903`*^9}]
+GaussState.m\\n\\nFerraro et al. [2005] provide an excellent reference for \
+this purpose: They list many formulas explicitly as functions of the \
+convention-dependent variables \[Kappa] 1 , \[Kappa] 2 , \[Kappa] 3\\nwhich \
+are defined in [Ferraro et al., section 1.5.2].\\n\\nReference:\\nFerraro, \
+A., Olivares, S., & Paris, M. G. A. [2005, Mar.] Gaussian states in \
+continuous variable\\nquantum information. quant-ph/0503237.\"\>"], "Print",
+ CellChangeTimes->{3.731123168125701*^9}]
 }, Open  ]]
 }, Open  ]],
 
@@ -783,7 +788,7 @@ Cell[BoxData[
   Function[BoxForm`e$, 
    MatrixForm[BoxForm`e$]]]], "Output",
  CellChangeTimes->{{3.7309529183629*^9, 3.7309529279696302`*^9}, {
-  3.7309529774042273`*^9, 3.730952986603197*^9}}]
+   3.7309529774042273`*^9, 3.730952986603197*^9}, 3.73112318385677*^9}]
 }, Open  ]],
 
 Cell["\<\
@@ -809,7 +814,7 @@ Cell[BoxData[{
 
 Cell[BoxData["2"], "Output",
  CellChangeTimes->{{3.730952933339892*^9, 3.730952944413809*^9}, 
-   3.7309530912481833`*^9}]
+   3.7309530912481833`*^9, 3.731123185367305*^9}]
 }, Open  ]]
 }, Open  ]]
 },
@@ -824,13 +829,13 @@ StyleDefinitions->"Default.nb"
 (*CellTagsOutline
 CellTagsIndex->{
  "Info33730960022-4457481"->{
-  Cell[2724, 85, 469, 7, 112, "Print",
+  Cell[3121, 90, 469, 7, 112, "Print",
    CellTags->"Info33730960022-4457481"]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"Info33730960022-4457481", 29094, 825}
+ {"Info33730960022-4457481", 29535, 830}
  }
 *)
 (*NotebookFileOutline
@@ -848,39 +853,39 @@ Cell[1228, 44, 125, 2, 65, "Section"],
 Cell[1356, 48, 140, 2, 31, "Text"],
 Cell[CellGroupData[{
 Cell[1521, 54, 76, 1, 35, "Input"],
-Cell[1600, 57, 622, 8, 155, "Print"]
+Cell[1600, 57, 1019, 13, 304, "Print"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2271, 71, 122, 2, 65, "Section"],
-Cell[2396, 75, 174, 2, 31, "Text"],
+Cell[2668, 76, 122, 2, 65, "Section"],
+Cell[2793, 80, 174, 2, 31, "Text"],
 Cell[CellGroupData[{
-Cell[2595, 81, 126, 2, 30, "Input"],
-Cell[2724, 85, 469, 7, 112, "Print",
+Cell[2992, 86, 126, 2, 30, "Input"],
+Cell[3121, 90, 469, 7, 112, "Print",
  CellTags->"Info33730960022-4457481"]
 }, Open  ]],
-Cell[3208, 95, 235, 4, 31, "Text"],
+Cell[3605, 100, 235, 4, 31, "Text"],
 Cell[CellGroupData[{
-Cell[3468, 103, 125, 2, 32, "Input"],
-Cell[3596, 107, 10264, 281, 366, "Print"]
+Cell[3865, 108, 125, 2, 32, "Input"],
+Cell[3993, 112, 10264, 281, 366, "Print"]
 }, Open  ]],
-Cell[13875, 391, 197, 6, 31, "Text"],
+Cell[14272, 396, 197, 6, 31, "Text"],
 Cell[CellGroupData[{
-Cell[14097, 401, 97, 2, 30, "Input"],
-Cell[14197, 405, 11828, 319, 438, "Print"]
+Cell[14494, 406, 97, 2, 30, "Input"],
+Cell[14594, 410, 11828, 319, 438, "Print"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[26074, 730, 95, 1, 65, "Section"],
-Cell[26172, 733, 139, 1, 31, "Text"],
+Cell[26471, 735, 95, 1, 65, "Section"],
+Cell[26569, 738, 139, 1, 31, "Text"],
 Cell[CellGroupData[{
-Cell[26336, 738, 258, 6, 51, "Input"],
-Cell[26597, 746, 1312, 39, 150, "Output"]
+Cell[26733, 743, 258, 6, 51, "Input"],
+Cell[26994, 751, 1334, 39, 150, "Output"]
 }, Open  ]],
-Cell[27924, 788, 307, 5, 51, "Text"],
+Cell[28343, 793, 307, 5, 51, "Text"],
 Cell[CellGroupData[{
-Cell[28256, 797, 394, 10, 56, "Input"],
-Cell[28653, 809, 122, 2, 30, "Output"]
+Cell[28675, 802, 394, 10, 56, "Input"],
+Cell[29072, 814, 144, 2, 30, "Output"]
 }, Open  ]]
 }, Open  ]]
 }
